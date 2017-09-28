@@ -21,24 +21,6 @@ from utils.utils import update_lr, save_checkpoint, mkdir, AverageMeter
 
 from cifar_opt import TrainOpt
 
-#
-# state = {k: v for k, v in opt._get_kwargs()}
-#
-# # Validate dataset
-# assert opt.dataset == 'cifar10' or opt.dataset == 'cifar100', 'Dataset can only be cifar10 or cifar100.'
-#
-# # Use CUDA
-# os.environ['CUDA_VISIBLE_DEVICES'] = opt.gpu_id
-# use_gpu = torch.cuda.is_available()
-#
-# # Random seed
-# if opt.manualSeed is None:
-#     opt.manualSeed = random.randint(1, 10000)
-# random.seed(opt.manualSeed)
-# torch.manual_seed(opt.manualSeed)
-# if use_gpu:
-#     torch.cuda.manual_seed_all(opt.manualSeed)
-
 
 def main(opt):
     best_acc = 0

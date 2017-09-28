@@ -1,5 +1,6 @@
 # pytorch-classification
 Classification on CIFAR-10/100 and ImageNet with PyTorch.
+This repo is modified from [bearpaw`s repo](https://github.com/bearpaw/pytorch-classification)
 
 ## Features
 * Unified interface for different network architectures
