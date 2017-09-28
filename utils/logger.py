@@ -8,10 +8,12 @@ import numpy as np
 
 __all__ = ['Logger', 'LoggerMonitor', 'savefig']
 
+
 def savefig(fname, dpi=None):
     dpi = 150 if dpi == None else dpi
     plt.savefig(fname, dpi=dpi)
-    
+
+
 def plot_overlap(logger, names=None):
     names = logger.names if names == None else names
     numbers = logger.numbers
@@ -19,6 +21,7 @@ def plot_overlap(logger, names=None):
         x = np.arange(len(numbers[name]))
         plt.plot(x, np.asarray(numbers[name]))
     return [logger.title + '(' + name + ')' for name in names]
+
 
 class Logger(object):
     '''Save training process to log file with simple plot function.'''
@@ -57,11 +60,13 @@ class Logger(object):
         self.file.write('\n')
         self.file.flush()
 
-
-    def append(self, numbers):
+    def append(self, numbers, types):
         assert len(self.names) == len(numbers), 'Numbers do not match names'
         for index, num in enumerate(numbers):
-            self.file.write("{0:.6f}".format(num))
+            if types[index]:
+                self.file.write("{}".format(num))
+            else:
+                self.file.write("{0:.6f}".format(num))
             self.file.write('\t')
             self.numbers[self.names[index]].append(num)
         self.file.write('\n')
@@ -80,6 +85,7 @@ class Logger(object):
         if self.file is not None:
             self.file.close()
 
+
 class LoggerMonitor(object):
     '''Load and visualize multiple logs.'''
     def __init__ (self, paths):
@@ -97,7 +103,8 @@ class LoggerMonitor(object):
             legend_text += plot_overlap(logger, names)
         plt.legend(legend_text, bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
         plt.grid(True)
-                    
+
+
 if __name__ == '__main__':
     # # Example
     # logger = Logger('test.txt')

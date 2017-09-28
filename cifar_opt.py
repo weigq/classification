@@ -14,6 +14,7 @@ class TrainOpt:
     def _initial(self):
         self.parser.add_argument('--dataset',        type=str, default='cifar10')
         self.parser.add_argument('-j', '--workers',  type=int, default=4)
+        self.parser.add_argument('--data_path',      type=str, default='./data')
 
         self.parser.add_argument('--epochs',         type=int, default=300)
         self.parser.add_argument('--start_epoch',    type=int, default=0)
@@ -23,6 +24,8 @@ class TrainOpt:
         self.parser.add_argument('--drop',           type=float, default=0)
         self.parser.add_argument('--lr_step',        type=int, default=60)
         self.parser.add_argument('--gamma',          type=float, default=0.1, help='rate of lr decay')
+        self.parser.add_argument('--lr_decay',       type=float, default=0.1, help='rate of lr decay')
+
         self.parser.add_argument('--momentum',       type=float, default=0.9)
         self.parser.add_argument('--weight_decay',   type=float, default=5e-4)
         self.parser.add_argument('--checkpoint',     type=str, default='checkpoint')
@@ -38,7 +41,7 @@ class TrainOpt:
         self.parser.add_argument('--manualSeed',     type=int, help='manual seed')
         self.parser.add_argument('--evaluate',       dest='evaluate', action='store_true')
 
-        self.parser.add_argument('--gpu_id',         type=str, default='1')
+        self.parser.add_argument('--gpu_id',         type=str, default='0')
 
     def parse(self):
         self._initial()
