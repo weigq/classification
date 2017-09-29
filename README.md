@@ -1,5 +1,6 @@
 # pytorch-classification
-Classification on CIFAR-10/100 and ImageNet with PyTorch.
+Pytorch implementation of multi classification models on CIFAR-10/100 and ImageNet.
+
 This repo is modified from [bearpaw`s repo](https://github.com/bearpaw/pytorch-classification)
 
 ## Features
@@ -12,7 +13,7 @@ This repo is modified from [bearpaw`s repo](https://github.com/bearpaw/pytorch-c
 * Install [PyTorch](http://pytorch.org/)
 * Clone recursively
   ```
-  git clone --recursive https://github.com/bearpaw/pytorch-classification.git
+  git clone --recursive https://github.com/weigq/pytorch-classification.git
   ```
 
 ## Training
